@@ -1,7 +1,6 @@
 <?php
 session_start(); // Start the session to access session data
 
-// Check if session data exists
 if (!isset($_SESSION['form_data'])) {
     echo "No form data available. Please go back and fill out the form.";
     exit();
@@ -26,19 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Reservation = $_POST['Reservation'];
     $payment_method = $_POST['payment_method'];
 
-    // Update the record in the database
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "reservation_sys";
     
-    // Connect to DB
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $id = $_POST['id']; // You should store the record ID in the session or pass it via form
+    $id = $_POST['id']; 
     $stmt = $conn->prepare("UPDATE apt_info SET 
         Fname=?, Lname=?, Email=?, Contact_num=?, Address=?, Emergency_fullname=?, Emergency_num=?, 
         Btype=?, Birthdate=?, Med_condition=?, Reservation=?, payment_method=? 
@@ -63,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/ClarificationPage.css  "> <!-- Link to the same stylesheet -->
+    <link rel="stylesheet" href="Css/ClarificationPage.css">
     <title>Edit Appointment</title>
 </head>
 <body>
@@ -150,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <script>
         document.getElementById('back-button').addEventListener('click', function() {
-            window.location.href = 'MainPage.html';
+            window.location.href = 'zMainPage.html';
         })
     </script>
 </body>
