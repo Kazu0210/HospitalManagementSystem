@@ -60,83 +60,80 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/AdminPage.css">
+    <link rel="stylesheet" href="../Css/editinfo.css">
     <title>Edit Information</title>
 </head>
 <body>
-    <div class="background"></div>
-    <header class="header">
+    <nav>
         <h1>Hanami Hospital</h1>
-    </header>
+        <button type="button" class="back-btn" id="back-btn">Back</button>
+    </nav>
 
-    <h2>Edit Information</h2>
+    <h1>Edit Information</h1>
 
-    <form method="POST">
-        <div class="form-group">
-            <label for="Fname">First Name:</label>
-            <input type="text" name="Fname" id="Fname" value="<?= htmlspecialchars($row['Fname']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Lname">Last Name:</label>
-            <input type="text" name="Lname" id="Lname" value="<?= htmlspecialchars($row['Lname']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Email">Email:</label>
-            <input type="email" name="Email" id="Email" value="<?= htmlspecialchars($row['Email']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Contact_num">Contact Number:</label>
-            <input type="text" name="Contact_num" id="Contact_num" value="<?= htmlspecialchars($row['Contact_num']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Address">Address:</label>
-            <input type="text" name="Address" id="Address" value="<?= htmlspecialchars($row['Address']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Emergency_fullname">Emergency Contact Person:</label>
-            <input type="text" name="Emergency_fullname" id="Emergency_fullname" value="<?= htmlspecialchars($row['Emergency_fullname']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Emergency_num">Emergency Contact Number:</label>
-            <input type="text" name="Emergency_num" id="Emergency_num" value="<?= htmlspecialchars($row['Emergency_num']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Btype">Blood Type:</label>
-            <input type="text" name="Btype" id="Btype" value="<?= htmlspecialchars($row['Btype']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Gender">Gender:</label>
-            <input type="text" name="Gender" id="Gender" value="<?= htmlspecialchars($row['Gender']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Birthdate">Birthdate:</label>
-            <input type="date" name="Birthdate" id="Birthdate" value="<?= htmlspecialchars($row['Birthdate']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Med_condition">Medical Condition:</label>
-            <input type="text" name="Med_condition" id="Med_condition" value="<?= htmlspecialchars($row['Med_condition']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="Reservation">Reservation:</label>
-            <input type="text" name="Reservation" id="Reservation" value="<?= htmlspecialchars($row['Reservation']) ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="payment_method">Payment Method:</label>
-            <input type="text" name="payment_method" id="payment_method" value="<?= htmlspecialchars($row['payment_method']) ?>" required>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="my-button">Update</button>
-        </div>
-    </form>
-
-    <footer class="footer">
-        <button class="my-button" id="back-button">Back</button>
-    </footer>
-
+    <div class="content">
+        <form method="POST">
+            <div class="form-group">
+                <label for="Fname">First Name:</label>
+                <input type="text" name="Fname" id="Fname" value="<?= htmlspecialchars($row['Fname']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Lname">Last Name:</label>
+                <input type="text" name="Lname" id="Lname" value="<?= htmlspecialchars($row['Lname']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="email" name="Email" id="Email" value="<?= htmlspecialchars($row['Email']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Contact_num">Contact Number:</label>
+                <input type="text" name="Contact_num" id="Contact_num" value="<?= htmlspecialchars($row['Contact_num']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Address">Address:</label>
+                <input type="text" name="Address" id="Address" value="<?= htmlspecialchars($row['Address']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Emergency_fullname">Emergency Contact Person:</label>
+                <input type="text" name="Emergency_fullname" id="Emergency_fullname" value="<?= htmlspecialchars($row['Emergency_fullname']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Emergency_num">Emergency Contact Number:</label>
+                <input type="text" name="Emergency_num" id="Emergency_num" value="<?= htmlspecialchars($row['Emergency_num']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Btype">Blood Type:</label>
+                <input type="text" name="Btype" id="Btype" value="<?= htmlspecialchars($row['Btype']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <input type="text" name="Gender" id="Gender" value="<?= htmlspecialchars($row['Gender']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Birthdate">Birthdate:</label>
+                <input type="date" name="Birthdate" id="Birthdate" value="<?= htmlspecialchars($row['Birthdate']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Med_condition">Medical Condition:</label>
+                <input type="text" name="Med_condition" id="Med_condition" value="<?= htmlspecialchars($row['Med_condition']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="Reservation">Reservation:</label>
+                <input type="text" name="Reservation" id="Reservation" value="<?= htmlspecialchars($row['Reservation']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="payment_method">Payment Method:</label>
+                <input type="text" name="payment_method" id="payment_method" value="<?= htmlspecialchars($row['payment_method']) ?>" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="my-button">Update</button>
+            </div>
+        </form>
+    </div>
     <script>
-        document.getElementById('back-button').addEventListener('click', function() {
-            window.location.href = '../admin/Admin.php';
-        });
+        document.getElementById('back-btn').addEventListener('click', function() {
+            window.location.href = "../main.php"
+        })
     </script>
 </body>
 </html>

@@ -73,7 +73,7 @@ input {
     width: auto;
 }
 
-#update-btn {
+.my-button {
     background-color: #0A91AB;
     color: #fff;
     font-weight: 600;

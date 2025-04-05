@@ -7,22 +7,20 @@
     <title>Hanami Hospital</title>
 </head>
 <body>
-	<div class="background">
-	</div>
-    <header class="header">
+    <nav>
         <h1>Hanami Hospital</h1>
-    </header>
-		<h2> Reservation Sent </h2>
-    <div class="content">
-        <p>
-            You have submitted the form. Thank you!
-        </p>
-    </div>
-	
-    <footer class="footer">
-	<a href="MainPage.html">
-        <button class="my-button"> Back </button>
-    </footer>
+        <button type="button" class="back-btn" id="back-btn">Back</button>
+    </nav>
 
+    <div class="content">
+        <h1>Reservation Sent</h1>
+        <p>You have submitted the form. Thank you!</p>
+    </div>
+
+    <script>
+        document.getElementById('back-btn').addEventListener('click', function() {
+            window.location.href = "main.php"
+        })
+    </script>  
 </body>
 </html>

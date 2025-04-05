@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Css/PaymentPage.css">
-    <script src="./Scripts/Payment.js"></script>
+    <link rel="stylesheet" href="Css/payment.css">
+    <!-- <link rel="stylesheet" href="./Css/PaymentPage.css"> -->
+
     <title>Hanami Hospital - Payment</title>   
 </head>
 <body>
-    <div class="background"></div>
-    <header class="header">
+    <nav>
         <h1>Hanami Hospital</h1>
-    </header>
+        <button type="button" class="back-btn" id="back-btn">Back</button>
+    </nav>
     <div class="content">
-        <p>Please fill in your details:</p>
         <form action="./Includes/process_reservation.php" method="post">
+            <h1>Reservation</h1>
+            <p>Please fill in your details:</p>
             <label>First Name:</label>
             <input type="text" name="Fname" required><br>
             
@@ -63,27 +65,34 @@
         
             <label>Date of Reservation:</label>
             <input type="datetime-local" name="Reservation" required><br>
-            <p>Please select your payment method:</p>
-            <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
-            <label for="credit-card">Credit Card</label><br>
-            
-            <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
-            <label for="paypal">PayPal</label><br>
-            
-            <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
-            <label for="bank-transfer">Bank Transfer</label><br>
-            
-            <input type="radio" id="cash" name="payment-method" value="cash" onclick="showPaymentFields()">
-            <label for="cash">Cash</label><br>
+            <div class="payment-cont">
+                <p>Please select your payment method:</p>
+                <div class="field-cont">
+                    <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
+                    <label for="credit-card">Credit Card</label>
+                </div>
 
-            <div id="payment-details"></div>
-            <footer class="footer">
-                <a href="MainPage.html">
-                    <button type="button" class="my-button">Back</button>
-                </a>
-                <input type="submit" Value="Submit" class="my-button"></button>
-            </footer>
-        </form>
+                <div class="field-cont">
+                    <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
+                    <label for="paypal">PayPal</label>
+                </div>
+                <div class="field-cont">
+                    <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
+                    <label for="bank-transfer">Bank Transfer</label>
+                </div>
+                <div class="field-cont">
+                    <input type="radio" id="cash" name="payment-method" value="cash" onclick="showPaymentFields()">
+                    <label for="cash">Cash</label>
+                </div>  
+            </div>
+            <input type="submit" Value="Submit" class="my-button"></button> 
+        </form> 
     </div>
+    <script src="./Scripts/Payment.js"></script>
+    <script>
+        document.getElementById('back-btn').addEventListener('click', function() {
+            window.location.href = "main.php"
+        })
+    </script>
 </body>
 </html>

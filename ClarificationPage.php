@@ -64,91 +64,88 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Edit Appointment</title>
 </head>
 <body>
-    <div class="background"></div>
-    <header class="header">
+    <nav>
         <h1>Hanami Hospital</h1>
-    </header>
-    <h2>Edit Appointment Info</h2>
-
-    <form method="post" class="form-container">
-        <input type="hidden" name="id" value="<?php echo htmlspecialchars($data['id']); ?>">
-
-        <div class="form-group">
-            <label>First Name:</label><br>
-            <input type="text" name="Fname" value="<?php echo htmlspecialchars($data['Fname']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Last Name:</label><br>
-            <input type="text" name="Lname" value="<?php echo htmlspecialchars($data['Lname']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Email:</label><br>
-            <input type="email" name="Email" value="<?php echo htmlspecialchars($data['Email']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Contact Number:</label><br>
-            <input type="text" name="Contact_num" value="<?php echo htmlspecialchars($data['Contact_num']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Address:</label><br>
-            <input type="text" name="Address" value="<?php echo htmlspecialchars($data['Address']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Emergency Contact Name:</label><br>
-            <input type="text" name="Emergency_fullname" value="<?php echo htmlspecialchars($data['Emergency_fullname']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Emergency Contact Number:</label><br>
-            <input type="text" name="Emergency_num" value="<?php echo htmlspecialchars($data['Emergency_num']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Blood Type:</label><br>
-            <input type="text" name="Btype" value="<?php echo htmlspecialchars($data['Btype']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Birthdate:</label><br>
-            <input type="date" name="Birthdate" value="<?php echo htmlspecialchars($data['Birthdate']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Medical Condition:</label><br>
-            <input type="text" name="Med_condition" value="<?php echo htmlspecialchars($data['Med_condition']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Reservation Date:</label><br>
-            <input type="date" name="Reservation" value="<?php echo htmlspecialchars($data['Reservation']); ?>" required><br><br>
-        </div>
-
-        <div class="form-group">
-            <label>Payment Method:</label><br>
-            <select name="payment_method" required>
-                <option value="credit-card" <?php echo ($data['payment_method'] == 'credit-card') ? 'selected' : ''; ?>>Credit Card</option>
-                <option value="paypal" <?php echo ($data['payment_method'] == 'paypal') ? 'selected' : ''; ?>>PayPal</option>
-                <option value="bank-transfer" <?php echo ($data['payment_method'] == 'bank-transfer') ? 'selected' : ''; ?>>Bank Transfer</option>
-                <option value="cash" <?php echo ($data['payment_method'] == 'cash') ? 'selected' : ''; ?>>Cash</option>
-            </select><br><br>
-        </div>
-
-        <button type="submit" class="submit-btn">Update</button>
-    </form>
-
-    <footer class="footer">
-        <button class="my-button" id="back-button">Back</button>
-    </footer>
+        <button type="button" class="back-btn" id="back-btn">Back</button>
+    </nav>
+    <div class="content">
+        <form method="post" class="form-container">
+            <h1>Edit Appointment Info</h1>
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($data['id']); ?>">
+    
+            <div class="form-group">
+                <label>First Name:</label><br>
+                <input type="text" name="Fname" value="<?php echo htmlspecialchars($data['Fname']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Last Name:</label><br>
+                <input type="text" name="Lname" value="<?php echo htmlspecialchars($data['Lname']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Email:</label><br>
+                <input type="email" name="Email" value="<?php echo htmlspecialchars($data['Email']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Contact Number:</label><br>
+                <input type="text" name="Contact_num" value="<?php echo htmlspecialchars($data['Contact_num']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Address:</label><br>
+                <input type="text" name="Address" value="<?php echo htmlspecialchars($data['Address']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Emergency Contact Name:</label><br>
+                <input type="text" name="Emergency_fullname" value="<?php echo htmlspecialchars($data['Emergency_fullname']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Emergency Contact Number:</label><br>
+                <input type="text" name="Emergency_num" value="<?php echo htmlspecialchars($data['Emergency_num']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Blood Type:</label><br>
+                <input type="text" name="Btype" value="<?php echo htmlspecialchars($data['Btype']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Birthdate:</label><br>
+                <input type="date" name="Birthdate" value="<?php echo htmlspecialchars($data['Birthdate']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Medical Condition:</label><br>
+                <input type="text" name="Med_condition" value="<?php echo htmlspecialchars($data['Med_condition']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Reservation Date:</label><br>
+                <input type="date" name="Reservation" value="<?php echo htmlspecialchars($data['Reservation']); ?>" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Payment Method:</label><br>
+                <select name="payment_method" required>
+                    <option value="credit-card" <?php echo ($data['payment_method'] == 'credit-card') ? 'selected' : ''; ?>>Credit Card</option>
+                    <option value="paypal" <?php echo ($data['payment_method'] == 'paypal') ? 'selected' : ''; ?>>PayPal</option>
+                    <option value="bank-transfer" <?php echo ($data['payment_method'] == 'bank-transfer') ? 'selected' : ''; ?>>Bank Transfer</option>
+                    <option value="cash" <?php echo ($data['payment_method'] == 'cash') ? 'selected' : ''; ?>>Cash</option>
+                </select><br><br>
+            </div>
+    
+            <button type="submit" class="submit-btn" id="update-btn">Update</button>
+        </form>
+    </div>
 
     <script>
-        document.getElementById('back-button').addEventListener('click', function() {
-            window.location.href = 'zMainPage.html';
+        document.getElementById('back-btn').addEventListener('click', function() {
+            window.location.href = "main.php"
         })
-    </script>
+    </script>   
 </body>
 </html>
