@@ -68,13 +68,17 @@ $result = $stmt->get_result();
                             <td><?= htmlspecialchars($row["Med_condition"]) ?></td>
                             <td><?= htmlspecialchars($row["Reservation"]) ?></td>
                             <td><?= htmlspecialchars($row["payment_method"]) ?></td>
-                            <td><a class="btn-update" href="edit-info.php?id=<?= urlencode($row['id']) ?>">Update</a></td>
+                            <td>
+                                <a class="btn-update" href="edit-info.php?id=<?= urlencode($row['id']) ?>">Update</a>
+                                <a class="btn-delete" href="delete-info.php?id=<?= urlencode($row['id']) ?>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr><td colspan="15">No data found.</td></tr>
                 <?php endif; ?>
             </tbody>
+
 
         </table>
     </div>

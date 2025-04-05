@@ -17,8 +17,8 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare("INSERT INTO apt_info (
     Fname, Lname, Email, Contact_num, Address, Emergency_fullname, 
     Emergency_num, Btype, Gender, Birthdate, Med_condition, 
-    Reservation, payment_method, payment_details
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    Reservation, payment_method, payment_details, temp
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 if ($stmt === false) {
     die("Error preparing statement: " . $conn->error);
@@ -38,6 +38,7 @@ $birthdate = $_POST['Birthdate'];
 $med_condition = $_POST['Med_condition'];
 $reservation = $_POST['Reservation'];
 $payment_method = $_POST['payment-method'];
+$temp_id = rand(1000, 9999);
 
 // Handle payment details based on payment method
 $payment_details = "";
@@ -67,20 +68,38 @@ switch ($payment_method) {
 }
 
 // Bind parameters
-$stmt->bind_param("ssssssssssssss", 
+$stmt->bind_param("ssssssssssssssi", 
     $fname, $lname, $email, $contact, $address, $emergency_name,
     $emergency_num, $blood_type, $gender, $birthdate, $med_condition,
-    $reservation, $payment_method, $payment_details
+    $reservation, $payment_method, $payment_details, $temp_id
 );
 
-// Execute the statement
+session_start();
+
+$_SESSION['form_data'] = [
+    'id' => $temp_id,
+    'Fname' => $_POST['Fname'],
+    'Lname' => $_POST['Lname'],
+    'Email' => $_POST['Email'],
+    'Contact_num' => $_POST['Contact_num'],
+    'Address' => $_POST['Address'],
+    'Emergency_fullname' => $_POST['Emergency_fullname'],
+    'Emergency_num' => $_POST['Emergency_num'],
+    'Btype' => $_POST['Btype'],
+    'Birthdate' => $_POST['Birthdate'],
+    'Med_condition' => $_POST['Med_condition'],
+    'Reservation' => $_POST['Reservation'],
+    'payment_method' => $_POST['payment-method'],
+];
+
+
 if ($stmt->execute()) {
     header("Location: ../ClarificationPage.php");
+    exit(); 
 } else {
     echo "Error: " . $stmt->error;
 }
 
-// Close connections
 $stmt->close();
 $conn->close();
 ?>
