@@ -1,0 +1,35 @@
+f<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/MainPage.css">
+    <title>Hanami Hospital</title>
+</head>
+<body>
+    <div class="background">
+    </div>
+    <header class="header">
+        <h1>Hanami Hospital</h1>
+        <!-- <a href="AdminPage.html">
+            <button class="admin-button">Admin Page</button>
+        </a> -->
+    </header>
+    <div class="content">
+        <p>
+            Website description blablabalbalbalbalbalbalablablabalbalablalbalbalbalba
+            lbalablablabalbalablalbalbalbalbalbalablablabalbalablalbalbalbalbalbalabla
+            blabalbalablalbalbalbalbalbalablablabalbalabla
+        </p>
+    </div>
+    <footer class="footer">
+        <button class="my-button" id="reserve-btn">Reserver Now</button>
+    </footer>
+
+    <script>
+        document.getElementById('reserve-btn').addEventListener('click', function() {
+            window.location.href = 'PaymentPage.html';
+        })
+    </script>
+</body>
+</html>

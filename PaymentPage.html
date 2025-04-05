@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/PaymentPage.css">
+    <script src="./Scripts/Payment.js"></script>
+    <title>Hanami Hospital - Payment</title>   
+</head>
+<body>
+    <div class="background"></div>
+    <header class="header">
+        <h1>Hanami Hospital</h1>
+    </header>
+    <div class="content">
+        <p>Please fill in your details:</p>
+        <form action="./Includes/process_reservation.php" method="post">
+            <label>First Name:</label>
+            <input type="text" name="Fname" required><br>
+            
+            <label>Last Name:</label>
+            <input type="text" name="Lname" required><br>
+            
+            <label>Email Address:</label>
+            <input type="email" name="Email" required><br>
+            
+            <label>Contact Number:</label>
+            <input type="text" name="Contact_num" required><br>
+            
+            <label>Address:</label>
+            <input type="text" name="Address" required><br>
+            
+            <label>Emergency Contact Name:</label>
+            <input type="text" name="Emergency_fullname" required><br>
+            
+            <label>Emergency Contact Phone:</label>
+            <input type="text" name="Emergency_num" required><br>
+            
+            <label>Blood Type:</label>
+            <select name="Btype" required>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select><br>
+            
+            <label>Gender:</label>
+            <select name="Gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+            </select><br>
+            
+            <label>Birthdate:</label>
+            <input type="date" name="Birthdate" required><br>
+        
+            <label>Disease:</label>
+            <input type="text" name="Med_condition" required><br>
+        
+            <label>Date of Reservation:</label>
+            <input type="datetime-local" name="Reservation" required><br>
+            <p>Please select your payment method:</p>
+            <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
+            <label for="credit-card">Credit Card</label><br>
+            
+            <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
+            <label for="paypal">PayPal</label><br>
+            
+            <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
+            <label for="bank-transfer">Bank Transfer</label><br>
+            
+            <input type="radio" id="cash" name="payment-method" value="cash" onclick="showPaymentFields()">
+            <label for="cash">Cash</label><br>
+
+            <div id="payment-details"></div>
+            <footer class="footer">
+                <a href="MainPage.html">
+                    <button type="button" class="my-button">Back</button>
+                </a>
+                <input type="submit" Value="Submit" class="my-button"></button>
+            </footer>
+        </form>
+    </div>
+</body>
+</html>
